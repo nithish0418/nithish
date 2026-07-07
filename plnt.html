@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprout & Soil - Premium E-Commerce Plant Shop & Care Assistant</title>
+  <meta name="description" content="Discover pet-safe house plants, build your perfect configuration, and track watering schedules with our interactive digital garden care companion.">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- HEADER SHELL -->
+    <header>
+      <a href="#" class="logo" onclick="navigate('home'); return false;">
+        <svg viewBox="0 0 24 24">
+          <path d="M17 8C8 10 9 19 9 19S6 13 8 9s8-4 9-1m3-2c-4 1-9 5-11 9-2-4-7-8-11-9 1 4 5 9 9 11-4 2-9 6-11 11 4-1 9-5 11-9 2 4 7 8 11 9-1-4-5-9-9-11 4-2 9-6 11-11z"/>
+        </svg>
+        <span>Sprout & Soil</span>
+      </a>
+
+      <nav>
+        <a href="#" class="nav-link active" data-page="home">Home</a>
+        <a href="#" class="nav-link" data-page="catalog">Shop Plants</a>
+        <a href="#" class="nav-link" data-page="garden">Digital Garden</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Register via QR Scan Simulation -->
+        <button class="icon-btn" onclick="openQRScanner()" title="Simulate QR Care Tag Scan">
+          <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m-3.343-1.343l.707.707m-2.828 2.828l.707.707M4 12h1m-.343 3.343l.707-.707m2.828 2.828l.707-.707M12 20v-1m3.343 1.343l-.707-.707m2.828-2.828l-.707-.707M20 12h-1m.343-3.343l-.707.707m-2.828-2.828l-.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+        </button>
+
+        <!-- Shopping Cart Button -->
+        <button class="icon-btn" onclick="openCart()" id="cart-btn" title="View Cart">
+          <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span class="badge" id="cart-badge" style="display: none;">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN SECTIONS -->
+    <main>
+      
+      <!-- 1. HOME SECTION -->
+      <section id="home-page" class="page-section active">
+        <div class="hero">
+          <div class="hero-content">
+            <span class="hero-subtitle">Breathe Life Into Your Home</span>
+            <h1 class="hero-title">Healthy Houseplants, Made Simple</h1>
+            <p class="hero-description">We match premium, hand-picked indoor foliage with custom planters, safe winter shipping, and interactive care schedules to ensure they flourish under your roof.</p>
+            <div class="cta-group">
+              <button class="btn btn-primary" onclick="startQuiz()">
+                Take Room Matcher Quiz
+                <svg style="width: 16px; height: 16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+              <button class="btn btn-secondary" onclick="navigate('catalog')">Shop the Catalog</button>
+            </div>
+          </div>
+          <div class="hero-image-container">
+            <div class="hero-image-card">
+              <img src="assets/images/monstera.jpg" alt="Featured Monstera Deliciosa">
+              <div style="margin-top: 0.75rem; text-align: center;">
+                <h3 style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--color-primary);">Monstera Deliciosa</h3>
+                <span style="font-size: 0.8rem; color: var(--color-accent); font-weight: 600;">Easiest Statement Plant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three Pillar Trust Factors -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem;">
+          <div style="background: var(--color-white); border: 1px solid var(--glass-border); padding: 2rem; border-radius: var(--border-radius-md); box-shadow: var(--glass-shadow);">
+            <div style="width: 48px; height: 48px; border-radius: var(--border-radius-full); background: var(--color-primary-xlight); display: flex; align-items: center; justify-content: center; color: var(--color-primary); margin-bottom: 1.25rem;">
+              <svg style="width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 style="font-family: var(--font-serif); color: var(--color-primary); margin-bottom: 0.5rem;">Environmental Filters</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted);">Ensure your plant matches your light levels and is safe around curious pets. Say goodbye to guesswork.</p>
+          </div>
+          
+          <div style="background: var(--color-white); border: 1px solid var(--glass-border); padding: 2rem; border-radius: var(--border-radius-md); box-shadow: var(--glass-shadow);">
+            <div style="width: 48px; height: 48px; border-radius: var(--border-radius-full); background: var(--color-primary-xlight); display: flex; align-items: center; justify-content: center; color: var(--color-primary); margin-bottom: 1.25rem;">
+              <svg style="width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 style="font-family: var(--font-serif); color: var(--color-primary); margin-bottom: 0.5rem;">Climate-Shield Delivery</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted);">We dynamically monitor shipping zip codes and bundle heat packs automatically to protect roots from cold shocks.</p>
+          </div>
+
+          <div style="background: var(--color-white); border: 1px solid var(--glass-border); padding: 2rem; border-radius: var(--border-radius-md); box-shadow: var(--glass-shadow);">
+            <div style="width: 48px; height: 48px; border-radius: var(--border-radius-full); background: var(--color-primary-xlight); display: flex; align-items: center; justify-content: center; color: var(--color-primary); margin-bottom: 1.25rem;">
+              <svg style="width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 style="font-family: var(--font-serif); color: var(--color-primary); margin-bottom: 0.5rem;">Automated Care Assistant</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted);">Scan the QR care tag on arrival to register your plant. Hydration schedules adapt automatically based on seasonal needs.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. CATALOG SECTION -->
+      <section id="catalog-page" class="page-section">
+        <div class="catalog-section">
+          <!-- Filters sidebar -->
+          <aside class="filters-sidebar">
+            <div class="filter-group">
+              <h4 class="filter-title">Light Requirements</h4>
+              <label class="checkbox-label">
+                <input type="checkbox" onchange="handleFilterChange('light', 'low', this.checked)"> Low Light
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" onchange="handleFilterChange('light', 'indirect', this.checked)"> Bright Indirect
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" onchange="handleFilterChange('light', 'direct', this.checked)"> Direct Sun
+              </label>
+            </div>
+
+            <div class="filter-group">
+              <h4 class="filter-title">Care Level</h4>
+              <label class="checkbox-label">
+                <input type="checkbox" onchange="handleFilterChange('difficulty', 'beginner', this.checked)"> Beginner Friendly
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" onchange="handleFilterChange('difficulty', 'intermediate', this.checked)"> Intermediate
+              </label>
+            </div>
+
+            <div class="filter-group">
+              <h4 class="filter-title">Pet Compatibility</h4>
+              <label class="checkbox-label">
+                <input type="checkbox" onchange="handleFilterChange('petSafe', null, this.checked)"> Safe for Cats & Dogs
+              </label>
+            </div>
+            
+            <button class="btn btn-secondary" onclick="resetFilters()" style="width: 100%; margin-top: 1rem; padding: 0.6rem 1rem;">Clear All</button>
+          </aside>
+
+          <!-- Product Lists -->
+          <div class="products-container">
+            <div class="catalog-header">
+              <h2 class="catalog-title">Shop Our Collection</h2>
+            </div>
+            <div class="products-grid" id="catalog-grid">
+              <!-- Rendered dynamically by app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. ROOM MATCHER QUIZ SECTION -->
+      <section id="quiz-page" class="page-section">
+        <div class="quiz-container">
+          <div class="quiz-progress-bar">
+            <div id="quiz-progress-fill" class="quiz-progress-fill"></div>
+          </div>
+          <div id="quiz-question-container">
+            <!-- Loaded dynamically by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. MY DIGITAL GARDEN SECTION -->
+      <section id="garden-page" class="page-section">
+        <div class="garden-hero">
+          <div class="garden-hero-text">
+            <h2>My Digital Garden</h2>
+            <p>Track your plants, monitor hydration levels in real time, and click water to replenish their health cycles.</p>
+          </div>
+          <div>
+            <button class="btn btn-secondary" style="background: var(--color-white); border-radius: var(--border-radius-full);" onclick="openQRScanner()">
+              <svg style="width: 16px; height: 16px; margin-right: 0.5rem;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m-3.343-1.343l.707.707m-2.828 2.828l.707.707M4 12h1m-.343 3.343l.707-.707m2.828 2.828l.707-.707M12 20v-1m3.343 1.343l-.707-.707m2.828-2.828l-.707-.707M20 12h-1m.343-3.343l-.707.707m-2.828-2.828l-.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+              Simulate Tag Scan
+            </button>
+          </div>
+        </div>
+
+        <div class="garden-grid" id="garden-grid">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- DYNAMIC PRODUCT BUILDER MODAL -->
+    <div class="modal-overlay" id="builder-modal">
+      <div class="modal-container">
+        <button class="close-modal-btn" onclick="closeBuilder()">
+          <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div class="product-builder-grid">
+          <!-- Left: Preview -->
+          <div class="builder-preview">
+            <div id="builder-img-wrapper" class="plant-view-wrapper">
+              <img id="builder-image" src="" alt="Custom preview">
+            </div>
+          </div>
+          <!-- Right: Controls -->
+          <div class="builder-details">
+            <h2 id="builder-title" class="builder-title">Plant Name</h2>
+            <p id="builder-latin" class="builder-latin">Latin Name</p>
+            <div id="builder-tags" class="builder-info-tags"></div>
+            <p id="builder-description" class="builder-description">Description goes here.</p>
+            
+            <!-- Sizing selection -->
+            <div class="config-section">
+              <span class="config-label">1. Choose Size</span>
+              <div class="radio-group">
+                <div class="radio-btn">
+                  <input type="radio" id="size-small" name="size" value="small" checked onchange="updateBuilderPriceAndPreview()">
+                  <label for="size-small">Small</label>
+                </div>
+                <div class="radio-btn">
+                  <input type="radio" id="size-medium" name="size" value="medium" onchange="updateBuilderPriceAndPreview()">
+                  <label for="size-medium">Medium</label>
+                </div>
+                <div class="radio-btn">
+                  <input type="radio" id="size-large" name="size" value="large" onchange="updateBuilderPriceAndPreview()">
+                  <label for="size-large">Large</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pot selections -->
+            <div class="config-section">
+              <span class="config-label">2. Select Ceramic Pot Style</span>
+              <div class="pot-color-picker">
+                <div class="pot-color-option">
+                  <input type="radio" id="pot-terracotta" name="pot" value="terracotta" checked onchange="updateBuilderPriceAndPreview()">
+                  <label for="pot-terracotta" style="background-color: #E29F7B;" title="Terracotta (Standard)"></label>
+                </div>
+                <div class="pot-color-option">
+                  <input type="radio" id="pot-white" name="pot" value="white" onchange="updateBuilderPriceAndPreview()">
+                  <label for="pot-white" style="background-color: #F8F9FA;" title="Ceramic White (+$10)"></label>
+                </div>
+                <div class="pot-color-option">
+                  <input type="radio" id="pot-grey" name="pot" value="grey" onchange="updateBuilderPriceAndPreview()">
+                  <label for="pot-grey" style="background-color: #A5A5A5;" title="Matte Grey (+$10)"></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Total price & purchase -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-bg-secondary);">
+              <div>
+                <span style="font-size: 0.8rem; color: var(--color-text-muted); text-transform: uppercase;">Total Price</span>
+                <div id="builder-price" style="font-size: 2rem; font-weight: 700; color: var(--color-primary);">$0</div>
+              </div>
+              <button class="btn btn-primary" onclick="addConfiguredToCart()">Add to Cart</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR SCANNER SIMULATOR MODAL -->
+    <div class="modal-overlay" id="qr-modal">
+      <div class="modal-container qr-modal">
+        <button class="close-modal-btn" onclick="closeQRScanner()">
+          <svg style="width: 18px; height: 18px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--color-primary);">Scanning Care Tag</h3>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Align the QR code on the plant packaging within the camera scan frame.</p>
+        
+        <div class="scanner-box">
+          <svg style="width: 48px; height: 48px; color: var(--color-sage-light);" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v1m-3.343-1.343l.707.707m-2.828 2.828l.707.707M4 12h1m-.343 3.343l.707-.707m2.828 2.828l.707-.707M12 20v-1m3.343 1.343l-.707-.707m2.828-2.828l-.707-.707M20 12h-1m.343-3.343l-.707.707m-2.828-2.828l-.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+          <div class="scanner-laser"></div>
+        </div>
+
+        <p style="font-weight: 500; font-size: 0.9rem; color: var(--color-accent);">Simulating scan lock-on...</p>
+      </div>
+    </div>
+
+    <!-- CART SIDEBAR PANEL -->
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h3 class="cart-title">
+          <svg style="width: 24px; height: 24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          Your Cart
+        </h3>
+        <button class="close-cart-btn" onclick="closeCart()">
+          <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="cart-items-list" id="cart-items-container">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Temperature Climate Weather Warnings -->
+      <div class="climate-warning-box" id="cart-warning-box" style="display: none;">
+        <div class="climate-warning-header">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Winter Climate Warning
+        </div>
+        <div class="climate-warning-body">
+          Temperatures in shipping destination are below 40°F (4°C). Roots are susceptible to freeze damage. A 72-hour heat pack is recommended.
+        </div>
+        <div class="climate-toggle-wrapper">
+          <span class="climate-toggle-label">Include Heat Pack (+$5.00)</span>
+          <label class="switch">
+            <input type="checkbox" id="heat-pack-toggle" onchange="toggleHeatPack(this.checked)">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Pricing Summaries -->
+      <div class="cart-footer-summary" id="cart-summary" style="display: none;">
+        
+        <!-- ZIP Lookup -->
+        <span class="config-label">Verify Delivery Weather</span>
+        <div class="zip-checker">
+          <input type="text" id="zip-code-input" class="zip-input" placeholder="Enter Zip Code (e.g. 55401)" maxlength="5">
+          <button class="zip-btn" onclick="checkZipCode()">Check</button>
+        </div>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="summary-subtotal">$0</span>
+        </div>
+        <div class="summary-row" id="summary-heatpack-row" style="display: none;">
+          <span>72hr Winter Heat Pack</span>
+          <span id="summary-heatpack">$0</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span id="summary-shipping">Free</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Order Total</span>
+          <span id="summary-total">$0</span>
+        </div>
+        
+        <button class="checkout-btn" onclick="checkout()">Secure Checkout</button>
+      </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+      <p>&copy; 2026 Sprout & Soil. Curating green spaces responsibly. All plants backed by our 30-Day Arrive Alive Guarantee.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
+x
